@@ -44,7 +44,7 @@ other value you expect.
 2. An array of model attribute names and return them, space separated.
 3. A static value, such as a simple string or integer.
 
-Extend Backbone.CModel, overriding c with your own has.
+Extend Backbone.CModel, overriding c with your own hash of computed attributes.
 
 ## Methods
 
