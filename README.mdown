@@ -29,7 +29,7 @@ var p = new Person({
 p.get('fullName'); 			  // 'Walker Percy'
 p.get('cityStateZip'); 		  // 'New Orleans, LA 70816'
 p.toCJSON();		          // { firstName:..., fullName: 'Walker Percy', cityStateZip: 'New Orleans, LA 70816' }
-p.toJSON({ computed: true }); // Same as toCJSON({ computed: true })
+p.toJSON({ computed: true }); // Same as toCJSON()
 p.toCJSON({ only: true }); 	  // { fullName: 'Walker Percy', cityStateZip: 'New Orleans, LA 70816' }
 
 ```
@@ -39,12 +39,12 @@ p.toCJSON({ only: true }); 	  // { fullName: 'Walker Percy', cityStateZip: 'New 
 Computed attributes are defined in the `c` property of a CModel. C is an object where
 the key is the name of the computed attribute and the value can be one of three things:
 
-1. Function that accepts an object hash of the model's attributes and returns a string or 
+1. A function that accepts an object hash of the model's attributes and returns a string or 
 other value you expect.
 2. An array of model attribute names and return them, space separated.
 3. A static value, such as a simple string or integer.
 
-Extend Backbone.CModel, overriding c with your own hash of computed attributes.
+Extend Backbone.CModel, overriding `c` with your own hash of computed attributes.
 
 ## Methods
 
@@ -57,7 +57,7 @@ the standard Backbone.Model get() is called.
 
 ### getC( attr )
 
-Pass is a string that is the computed attribute name and get the value. Or,
+Pass in a string that is the computed attribute name and get its value. Or,
 pass an array of strings and get an object with the corresponding computed 
 attributes as keys and their values.
 
